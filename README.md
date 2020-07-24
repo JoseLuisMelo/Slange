@@ -18,9 +18,9 @@ Todas las instrucciones que Slange puede ejecutar (**Insert, Delete, Update y Se
 ```sh
 public class Request
 {
-     public string Statement { get; }
-     public List<SqlParameter> Parameters { get; }
-     public bool IsSotoreProcedure { get; }
+    public string Statement { get; }
+    public List<SqlParameter> Parameters { get; }
+    public bool IsSotoreProcedure { get; }
 }
 ```
 | Propiedad| Función|
@@ -49,11 +49,11 @@ Como en otras herramientas y siguiendo el **principió de única responsabilidad
 ```sh
 public class UsuariosContext : ModelContext
 {
-	 public static UsuariosContext Context = new UsuariosContext();
+    public static UsuariosContext Context = new UsuariosContext();
 
-     private UsuariosContext() : base("usuarios.Usuarios")
-     {
-     }
+    private UsuariosContext() : base("usuarios.Usuarios")
+    {
+    }
 }
 ```
 Ya que esta clase será el único punto de contacto que tendremos del modelo con la base de datos, creamos un **Singleton** el cual cumplirá dicha función.
@@ -155,7 +155,7 @@ He creado algunas herramientas que pueden ser de utilidad no solo para usar con 
 | Para| Método | Descripción |
 | ------ | ------ | ------ |
 | DataTable| ToList\<T>() | Para convertir un DataTable a lista de objetos|
-| DataTable| FirstCell() |Para obtener el valor de la primera celda (posición[0,0]) de un DataTable (útil cuando se ejecuta un **count**)|
+| DataTable| FirstCell() | Para obtener el valor de la primera celda (posición[0,0]) de un DataTable (útil cuando se ejecuta un **count**)|
 
 # Mis Redes
 Sígueme en [LinkedIn](https://www.linkedin.com/in/melorojasluis/) si tienes alguna pregunta, con gusto te respondo
