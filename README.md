@@ -23,7 +23,7 @@ public class Request
     public bool IsSotoreProcedure { get; }
 }
 ```
-| Propiedad| Función|
+| Propiedad | Función|
 | ------ | ------ |
 | Statement | Instrucción Sql o nombre de procedimiento almacenado |
 | Parameters | Parámetros que utiliza la consulta para tomar valores |
