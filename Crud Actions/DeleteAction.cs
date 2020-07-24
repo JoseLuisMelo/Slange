@@ -19,14 +19,12 @@ namespace Slange.Crud
             this.ModelName = ModelName;
         }
 
-        public Delete Delete(string where)
+        public Delete Where(string where)
         {
             if (where is null || where.Equals(string.Empty))
                 throw new Exception("You must include a 'where' condition");
-            if (!where.Substring(0, 6).ToUpper().Equals("WHERE "))
-                throw new Exception("You must use a 'where' key word");
 
-            return new Delete($"DELETE FROM {ModelName} {where}");
+            return new Delete($"DELETE FROM {ModelName} WHERE {where}");
         }
     }
 }
