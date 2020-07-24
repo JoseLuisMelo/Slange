@@ -62,6 +62,7 @@ Observa que esta clase hereda de **ModelContext** y a su constructor pasamos un 
 
 ## Añade el generador de código Sql
 La implementación de las siguientes interfaces, te permitirá comenzar a interactuar con la base de datos:
+
 | Interfaz | Propósito |
 | ------ | ------ |
 | IInsert\<T> | Especifica el tipo de modelo que vas a usar  |
@@ -70,6 +71,7 @@ La implementación de las siguientes interfaces, te permitirá comenzar a intera
 | IDelete | N/A  |
 
 Veamos la implementación en nuestro **UsuariosContext**:
+
 ```sh
 public class UsuariosContext : ModelContext, ISelect<Usuario>, IInsert<Usuario>, IUpdate<Usuario>
 {
