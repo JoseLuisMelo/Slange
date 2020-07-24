@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Slange.Context
 {
-    public abstract class ModelContext<T> where T: class
+    public abstract class ModelContext where T: class
     {
         public string ModelName { get; }
 

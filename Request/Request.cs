@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Slange.Sql
 {
-    public class Request
+    public abstract class Request
     {
         public string Statement { get; }
         public List<SqlParameter> Parameters { get; }
