@@ -152,10 +152,11 @@ Ya está, ahora que sabemos que pasa en nuestro código podemos ejecutar nuestra
 # Otras herramientas 
 
 He creado algunas herramientas que pueden ser de utilidad no solo para usar con Slange si no también de manera individual, son algunos **métodos de extensión** que te ayudaran a manejar mejor los datos:
+
 | Para | Método | Descripción |
 | ------ | ------ | ------ |
-| DataTable| ToList\<T>() | Para convertir un DataTable a lista de objetos|
-| DataTable| FirstCell() | Para obtener el valor de la primera celda (posición[0,0]) de un DataTable (útil cuando se ejecuta un **count**)|
+| DataTable | ToList\<T>() | Para convertir un DataTable a lista de objetos |
+| DataTable | FirstCell() | Para obtener el valor de la primera celda (posición[0,0]) de un DataTable (útil cuando se ejecuta un **count**) |
 
 # Mis Redes
 Sígueme en [LinkedIn](https://www.linkedin.com/in/melorojasluis/) si tienes alguna pregunta, con gusto te respondo
