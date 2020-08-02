@@ -5,12 +5,34 @@ using System.Text;
 
 namespace Slange.Sql
 {
+    /// <summary>
+    /// Intrucción Sql <strong>Generica</strong>
+    /// </summary>
     public abstract class Request
     {
+        /// <summary>
+        /// Enunciado Sql
+        /// </summary>
+        /// <value></value>
         public string Statement { get; }
+
+        /// <summary>
+        /// Parametros Sql
+        /// </summary>
+        /// <value></value>
         public List<SqlParameter> Parameters { get; }
+
+        /// <summary>
+        /// Especifica si la solicitud Sql es un Store Procedure
+        /// </summary>
+        /// <value></value>
         public bool IsSotoreProcedure { get; }
 
+        /// <summary>
+        /// Crea una instrucción Sql
+        /// </summary>
+        /// <param name="Statement">Enunciado Sql</param>
+        /// <returns></returns>
         public Request(string Statement)
         {
             this.Statement = Statement;
@@ -18,6 +40,12 @@ namespace Slange.Sql
             this.IsSotoreProcedure = false;
         }
 
+        /// <summary>
+        /// Crea una instrucción Sql
+        /// </summary>
+        /// <param name="Statement">Enunciado Sql</param>
+        /// <param name="Parameters">Parametros de variables Sql</param>
+        /// <returns></returns>
         public Request(string Statement, List<SqlParameter> Parameters)
         {
             this.Statement = Statement;
@@ -25,6 +53,13 @@ namespace Slange.Sql
             this.IsSotoreProcedure = false;
         }
 
+        /// <summary>
+        /// Crea una instrucción Sql
+        /// </summary>
+        /// <param name="Statement">Enunciado Sql</param>
+        /// <param name="Parameters">Parametros de variables Sql</param>
+        /// <param name="IsSotoreProcedure">Indica si la instrucción corresponde a un StoreProcedura (default <strong>False</strong>)</param>
+        /// <returns></returns>
         public Request(string Statement, List<SqlParameter> Parameters, bool IsSotoreProcedure)
         {
             this.Statement = Statement;

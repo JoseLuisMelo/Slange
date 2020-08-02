@@ -4,8 +4,18 @@ using System.Data;
 
 namespace Slange.Sql
 {
+    /// <summary>
+    /// Define las operaciónes Sql que puede hacer la libreria con el motor Sql
+    /// </summary>
     public abstract class Actions
     {
+        /// <summary>
+        /// Ejecuta una instrucción Sql (sin consultas)
+        /// </summary>
+        /// <param name="request">Instrucción Sql</param>
+        /// <param name="connection">Conexión Sql</param>
+        /// <typeparam name="T">Tipo de dato esperado (<strong>Bool ó Int</strong>)</typeparam>
+        /// <returns>Tipo de dato esperado (<strong>Bool ó Int</strong>)</returns>
         protected T ExecuteNonQuery<T>(Request request, SqlConnection connection)
         {
             if (connection.ConnectionString is null || connection.ConnectionString.Equals(string.Empty))
@@ -57,13 +67,13 @@ namespace Slange.Sql
                         if (ex is SqlException sqlEx)
                         {
                             if (sqlEx.Number == 2627)
-                                throw new Exception($"PK EXCEPTION: {ex.Message.ToUpper()}");
+                                throw new Exception($"PrimaryKey Exception: {ex.Message.ToUpper()}");
 
                             if (sqlEx.Number == 1025)
                                 return ExecuteNonQuery<T>(request, connection);
                         }
 
-                        throw new Exception($"STATEMENT WAS WRONG: {ex.Message.ToUpper()}");
+                        throw new Exception($"Instrucción Sql: {ex.Message.ToUpper()}");
                     }
                     catch (Exception ex2)
                     {
@@ -73,6 +83,13 @@ namespace Slange.Sql
             }
         }
 
+        /// <summary>
+        /// Ejecuta una instrucción Sql (con consultas)
+        /// </summary>
+        /// <param name="request">Instrucción Sql</param>
+        /// <param name="connection">Conexión Sql</param>
+        /// <typeparam name="T">Tipo de dato esperado (<strong>DataTable ó DataSet</strong>)</typeparam>
+        /// <returns>Tipo de dato esperado (<strong>DataTable ó DataSet</strong>)</returns>
         protected static T ExecuteQuery<T>(Request request, SqlConnection connection)
         {
             if (connection.ConnectionString is null || connection.ConnectionString.Equals(string.Empty))
@@ -136,13 +153,13 @@ namespace Slange.Sql
                     if (ex is SqlException sqlEx)
                     {
                         if (sqlEx.Number == 2627)
-                            throw new Exception($"PK EXCEPTION: {ex.Message.ToUpper()}");
+                            throw new Exception($"PrimaryKey Exception: {ex.Message.ToUpper()}");
 
                         if (sqlEx.Number == 1025)
                             return ExecuteQuery<T>(request, connection);
                     }
 
-                    throw new Exception($"STATEMENT WAS WRONG: {ex.Message.ToUpper()}");
+                    throw new Exception($"Instrucción Sql: {ex.Message.ToUpper()}");
                 }
             }
         }

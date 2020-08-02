@@ -6,21 +6,44 @@ using System.Linq;
 
 namespace Slange.Crud
 {
+    /// <summary>
+    /// Implementa la función <strong>INSERT</strong> en un contexto de datos para un modelo
+    /// </summary>
     public interface IInsert<T> where T : class, new()
     {
+        /// <summary>
+        /// Acción INSERT
+        /// </summary>
+        /// <value></value>
         public InsertAction<T> Insert { get; }
     }
 
-    public class InsertAction<T> where T: class, new()
+    /// <summary>
+    /// Definición de la acción INSERT 
+    /// </summary>
+    public class InsertAction<T> where T : class, new()
     {
+        /// <summary>
+        /// Nombre del modelo utilizado
+        /// </summary>
+        /// <value></value>
         private string ModelName { get; }
 
+        /// <summary>
+        /// Crea una nueva acción INSERT 
+        /// </summary>
+        /// <param name="ModelName"></param>
         public InsertAction(string ModelName)
         {
             this.ModelName = ModelName;
         }
 
-        public virtual Insert Save<TOut>(Func<T, TOut> filter, T take) where TOut: class
+        /// <summary>
+        /// Inserta un registro
+        /// </summary>
+        /// <param name="filter">Columnas a insertar</param>
+        /// <param name="take">Fuente de los datos a insertar</param>
+        public virtual Insert Save<TOut>(Func<T, TOut> filter, T take) where TOut : class
         {
             var properties = Tools.FilterProperties(filter).ToList();
 
